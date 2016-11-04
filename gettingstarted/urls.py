@@ -14,4 +14,6 @@ import hello.views
 urlpatterns = [
     url(r'^$', first_views.index, name='index'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^time/now/',first_views.now,name='now'),
+    url(r'^time/plus/(\d{1,2})/$',first_views.hours_ahead),
 ]
