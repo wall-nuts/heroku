@@ -19,4 +19,5 @@ urlpatterns = [
     url(r'^time/plus/(\d{1,2})/$',first_views.hours_ahead),
     url(r'^search/', first_views.search),
     url(r'^contact_form/',first_views.contact,name='contact'),
+    url(r'^contact_thanks/',first_views.thanks,name='thanks'),
 ]

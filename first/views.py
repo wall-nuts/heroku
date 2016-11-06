@@ -4,6 +4,7 @@ from django.http import HttpResponse,Http404
 from django.core.mail import send_mail
 from first.models import Book
 from django.http import HttpResponseRedirect
+from first.forms import ContactForm
 
 import datetime
 
@@ -52,21 +53,20 @@ def search(request):
     return render_to_response('search_form.html', {'error': error})
 
 def contact(request):
-    errors = []
     if (request.method == 'POST'):
-        if (not request.POST.get('subject','')):
-            errors.append('Enter a subject.')
-        if (not request.POST.get('message','')):
-            errors.append('Enter a message.')
-        if (request.POST.get('email') and '@' not in request.POST['email']):
-            errors.append('Enter a valid e-mail address.')
-        if (not errors):
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
             send_mail(
-                request.POST['subject'],
-                request.POST['message'],
-                request.POST.get('email','337062584@qq.com'),
-                ['448769943@qq.com']
+                cd['subject'],
+                cd['message'],
+                cd.get('email','xxxxxxxxx@qq.com'),
+                ['wwwwwww@qq.com']
             )
-            return HttpResponseRedirect('contact_thanks.html')
-    return render(request,'contact_form.html',{'errors': errors, 'subject': request.POST.get('subject', ''), 'message': request.POST.get('message', ''),
-     'email': request.POST.get('email', ''),})
+            return HttpResponseRedirect('/contact_thanks/')
+    else:
+        form = ContactForm(initial={'subject':'主题'})
+    return render(request,'contact_form.html',{'form':form})
+
+def thanks(request):
+    return render_to_response('contact_thanks.html')
