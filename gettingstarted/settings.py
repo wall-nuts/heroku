@@ -142,9 +142,9 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-EMAIL_USE_TLS = True
+EMAIL_USE_TLS = False
 EMAIL_HOST = 'smtp.qq.com'
 EMAIL_PORT = 25
-EMAIL_HOST_USER = 'xxxxxx@qq.com'
-EMAIL_HOST_PASSWORD = 'xxxxxx'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 DEFAULT_FORM_EMAIL = 'name<xxx@xx.com>' #显示在发件人处的名称
