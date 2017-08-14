@@ -7,3 +7,5 @@ db.sqlite3
 *.xml
 .idea/vcs.xml
 .idea/python-getting-started.iml
+.idea/dataSources.xml
+.idea/workspace.xml
