@@ -10,3 +10,4 @@ db.sqlite3
 .idea/dataSources.xml
 .idea/workspace.xml
 .idea/workspace.xml___jb_tmp___
+*.xml
