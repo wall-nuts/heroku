@@ -3,3 +3,9 @@ venv
 staticfiles
 .env
 db.sqlite3
+*.xml
+*.xml
+.idea/vcs.xml
+.idea/python-getting-started.iml
+.idea/dataSources.xml
+.idea/workspace.xml
