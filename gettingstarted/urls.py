@@ -5,7 +5,6 @@ admin.autodiscover()
 
 from first import views as first_views #new
 
-import hello.views
 
 # Examples:
 # url(r'^$', 'gettingstarted.views.home', name='home'),
