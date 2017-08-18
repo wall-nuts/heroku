@@ -5,6 +5,8 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-	url(r'^',views.index,name='home'),
 	url(r'^db',views.db,name='db'),
+	url(r'^book',views.book,name='book'),
+	url(r'^',views.index,name='home'),
+
 ]

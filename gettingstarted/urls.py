@@ -11,8 +11,8 @@ from first import views as first_views #new
 # url(r'^blog/', include('blog.urls')),
 
 urlpatterns = [
-    url(r'^', include('hello.urls'), name='index'),
     url(r'^admin/', admin.site.urls),
+    url(r'^', include('hello.urls'), name='index'),
     # url(r'^time/now/',first_views.now,name='now'),
     # url(r'^time/meta/',first_views.display_meta,name='meta'),
     # url(r'^time/plus/(\d{1,2})/$',first_views.hours_ahead),
