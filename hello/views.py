@@ -3,6 +3,8 @@ from django.http import HttpResponse
 import requests
 from .models import Greeting
 from first.models import Book
+from hello.models import Blog
+
 
 # Create your views here.
 def index(request):
@@ -21,6 +23,9 @@ def db(request):
 
 
 def book(request):
-	books = Book.objects.all()
-	return render(request,'book.html',{'books':books})
+    books = Book.objects.all()
+    return render(request,'book.html',{'books':books})
 
+def blog(request):
+    blogs = Blog.objects.all()
+    return render(request,'blog.html',locals())
