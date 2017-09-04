@@ -12,3 +12,10 @@ class Blog(models.Model):
     create_time = models.DateTimeField('date created',auto_now_add=True)
     tag = models.CharField(max_length=32)
     author = models.ForeignKey(Author,on_delete=models.DO_NOTHING)
+
+class Record(models.Model):
+    date = models.DateTimeField('DATE CREATED',auto_now_add=True)
+    way = models.CharField(max_length=32)
+    group = models.IntegerField()
+    chount = models.IntegerField()
+    time = models.TimeField()
