@@ -1,5 +1,6 @@
 from django.db import models
 from first.models import Author
+import django.utils.timezone as timezone
 
 # Create your models here.
 class Greeting(models.Model):
@@ -14,8 +15,6 @@ class Blog(models.Model):
     author = models.ForeignKey(Author,on_delete=models.DO_NOTHING)
 
 class Record(models.Model):
-    date = models.DateTimeField('DATE CREATED',auto_now_add=True)
+    date = models.DateTimeField('DATE CREATED',default=timezone.now)
     way = models.CharField(max_length=32)
-    group = models.IntegerField()
-    chount = models.IntegerField()
-    time = models.TimeField()
+    strength = models.CharField(max_length=64)

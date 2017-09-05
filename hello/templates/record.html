@@ -1,3 +1,52 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% block content %}
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">添加记录</h4>
+            </div>
+            <form action="" method="get">
+                <div class="modal-body">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">项目</span>
+                            {{ form.way }}
+{#                            <input type="text" class="form-control" name="way" placeholder="有氧/力量" aria-describedby="basic-addon1">#}
+                        </div>
+                    <br>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon2">强度</span>
+                            {{ form.strength }}
+{#                            <input type="text" class="form-control" name="strength" placeholder="时间/组数" aria-describedby="basic-addon2">#}
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="submit" class="btn btn-primary">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
+<div class = "container-fluid">
+    <div class = "row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" >
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">添加记录</button>
+            {% for re in record %}
+                <ul>
+                    <li>{{ re.way }} {{ re.strength }}{{ re.date }}</li>
+                </ul>
+            {% endfor %}
+
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+
+{% endblock %}
