@@ -1,3 +1,4 @@
+#coding:utf-8
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 import requests
@@ -6,6 +7,8 @@ from first.models import Book
 from hello.models import Blog,Record
 from .forms import RecordForm
 from datetime import datetime
+from django.utils import timezone
+from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 
 # Create your views here.
 def index(request):
@@ -25,7 +28,15 @@ def db(request):
 
 def book(request):
     books = Book.objects.all()
-    return render(request,'book.html',{'books':books})
+    paginator = Paginator(books,3,2)
+    page = request.GET.get('page')
+    try:
+        book = paginator.page(page)
+    except PageNotAnInteger:
+        book = paginator.page(1)
+    except EmptyPage:
+        book = paginator.page(paginator.num_pages)
+    return render(request,'book.html',{"books":books,"book":book})
 
 def blog(request):
     blogs = Blog.objects.all()
@@ -40,7 +51,7 @@ def record(request):
             record = Record.objects.create(way = way,strength=strength)
             record.save()
             return HttpResponseRedirect('/record/')
-    record = Record.objects.filter(date=datetime.now().date())
+    now = datetime.now()
+    record = Record.objects.filter(date__year=now.year,date__month=now.month,date__day=now.day)
     form = RecordForm()
-    print(datetime.now().date())
     return render(request,'record.html',locals())

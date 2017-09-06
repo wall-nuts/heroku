@@ -26,5 +26,8 @@ class Book(models.Model):
     publisher = models.ForeignKey(Publisher,on_delete=models.DO_NOTHING)
     publication_date = models.DateField(blank=True,null=True)
 
+    class Meta:
+        ordering = ["-id"]
+
     def __str__(self):
         return self.title

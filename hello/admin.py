@@ -6,7 +6,7 @@ class BlogAdmin(admin.ModelAdmin):
     list_display = ('title','tag','author')
 
 class RecordAdmin(admin.ModelAdmin):
-    list_display = ('id','way','strength')
+    list_display = ('id','way','strength','date')
 
 
 admin.site.register(Blog,BlogAdmin)
