@@ -9,14 +9,6 @@
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:G:\WWW\mysite\python-getting-started\db.sqlite3</jdbc-url>
     </data-source>
-    <data-source source="LOCAL" name="db" uuid="b43afe67-c960-4a98-a2bb-f66be3882388">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>SQLite</remarks>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:G:\WWW\mysite\python-getting-started\db.sqlite3</jdbc-url>
-    </data-source>
     <data-source source="LOCAL" name="db.sqlite3" uuid="bea7f01a-107b-44ac-9025-5717a445a0da">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>

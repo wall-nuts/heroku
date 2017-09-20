@@ -27,8 +27,8 @@ def db(request):
 
 
 def book(request):
-    books = Book.objects.all()
-    paginator = Paginator(books,3,2)
+    books = Book.objects.all()[::-1]
+    paginator = Paginator(books,30.2)
     page = request.GET.get('page')
     try:
         book = paginator.page(page)
@@ -37,6 +37,9 @@ def book(request):
     except EmptyPage:
         book = paginator.page(paginator.num_pages)
     return render(request,'book.html',{"books":books,"book":book})
+
+def book_detail(request):
+    d
 
 def blog(request):
     blogs = Blog.objects.all()
